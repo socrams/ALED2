@@ -1,30 +1,36 @@
 import  java.util.Scanner;
-/**
- *
+/*
  * @author nicolas
  */
 public class Tragamonedas 
 {
-
+    
     public static void main(String args[]) 
     {
         double dinero;
         int numFruta1,numFruta2,numFruta3;
         String nFruta1, nFruta2, nFruta3, continuar;
         Scanner ingreso = new Scanner(System.in);
-        //Scanner teclado = new Scanner(System.in);
         juego juego1= new juego();
-        System.out.println("Ingresar Plata para jugar");
-        dinero= ingreso.nextDouble();
+        System.out.println("Bienvenidos al juego de tragamonedas "
+                + "\nSaca 2 o 3 frutas iguales para ganar  "
+                + "\ncada juego tiene un costo de $0.5");
         do
         {
-            numFruta1= juego1.getFruta1();
+        System.out.println("Cuanto dinero desea ingresar para jugar?(de $1 a $50maximo)");
+        dinero= ingreso.nextDouble();
+        }while(dinero>50);
+        do
+        {
+            
+            numFruta1= juego1.getFruta1(); //genera un numero random de 1 a 6 que asocia luego con nombre de frutas
             numFruta2 =juego1.getFruta2();
             numFruta3=juego1.getFruta3();
-            nFruta1=juego1.nombreFruta(numFruta1);
+            nFruta1=juego1.nombreFruta(numFruta1); //nombre de la frutas
             nFruta2=juego1.nombreFruta(numFruta2);
             nFruta3=juego1.nombreFruta(numFruta3);
             System.out.println(""+nFruta1+" "+nFruta2+" "+nFruta3);
+            
             if (numFruta1==numFruta2 && numFruta1==numFruta3)
             {
                 switch(numFruta1)
@@ -32,6 +38,7 @@ public class Tragamonedas
                     case 4:
                         dinero=dinero+30;
                         System.out.println("***Ganaste $30***");
+                        break;
                     case 6:
                         dinero=dinero+20;
                         System.out.println("***Ganaste $20***");
@@ -56,11 +63,11 @@ public class Tragamonedas
                             System.out.println("\n*Ganaste $3*");
                             break;
                         case 6: dinero=dinero+2;
-                            System.out.println("*Ganaste $2*");
+                            System.out.println("\n*Ganaste $2*");
                             break;
                         default:
                             dinero=dinero+1;
-                            System.out.println("*Ganaste $1*");
+                            System.out.println("\n*Ganaste $1*");
                             break;
                     }
                 }
@@ -70,15 +77,15 @@ public class Tragamonedas
                     {
                         case 4: 
                             dinero=dinero+3;
-                            System.out.println("*Ganaste $3*");
+                            System.out.println("\n*Ganaste $3*");
                             break;
                         case 6:
                             dinero=dinero+2;
-                            System.out.println("*Ganaste $2*");
+                            System.out.println("\n*Ganaste $2*");
                             break;
                         default:
                             dinero=dinero+1;
-                            System.out.println("*Ganaste $1*");
+                            System.out.println("\n*Ganaste $1*");
                             break;
                     }
                 }
@@ -90,7 +97,7 @@ public class Tragamonedas
                 
             }
             System.out.println("\nDinero que me queda $" + dinero);
-            System.out.println("\nDesea seguir jugando ? Ingrese la tecla 'S' para continuar jugando u otra tecla para Salir"); 
+            System.out.println("\nDesea seguir jugando ?'S' para continuar u otra tecla para Salir"); 
             continuar = ingreso.next();
             continuar = continuar.toUpperCase();
             if (dinero==0)
@@ -99,5 +106,6 @@ public class Tragamonedas
                 System.out.println("No se puede continuar se quedo sin dinero");
             }
         }while(continuar.contentEquals("S"));
+        System.out.println("Hasta la proxima !!");
     }
 }

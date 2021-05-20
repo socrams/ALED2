@@ -22,14 +22,14 @@ public class juego
     }
     public int getFruta2() 
     {
-         Fruta2=(int) Math.floor(Math.random()*(6-1+1)+1);
+        Fruta2=(int) Math.floor(Math.random()*(6-1+1)+1);
         return Fruta2;
     }
     public int getFruta3() 
     {
         Fruta3=(int) Math.floor(Math.random()*(6-1+1)+1);
         return Fruta3;
-    }    
+    }
 
 
     String nombreFruta(int Fruta)
